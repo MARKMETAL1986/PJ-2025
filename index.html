@@ -239,11 +239,16 @@ function showTitleScreen() {
           THANK YOU.
         </div>
       </div>
-      <audio id="credit-music" src="REBIRTH.mp3" autoplay></audio>
+      <audio id="credit-music" src="REBIRTH.mp3"></audio>
+
     `;
 
     const creditText = document.getElementById("credit-text");
-    const creditMusic = document.getElementById("credit-music");
+    const creditMusic = document.getElementById("credit-music");creditMusic.play().catch(() => {
+  console.log("Mobile browser blocked autoplay. Will try again on user input.");
+  document.addEventListener("click", () => creditMusic.play(), { once: true });
+});
+
     let position = -100;
     const scrollDuration = 60000;
     const interval = 50;
