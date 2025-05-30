@@ -5,52 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>THE PJ GAME</title>
   <style>
+  body {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+    font-size: 2rem;
+    padding: 20px;
+    transition: background-color 2s;
+    overflow-y: auto; /* allows scroll on small screens */
+  }
+
+  .red {
+    color: red;
+  }
+
+  .option {
+    display: block;
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 1.5rem;
+    background-color: #111;
+    color: #0f0;
+    border: 2px solid #0f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .option:hover {
+    background-color: #0f0;
+    color: black;
+  }
+
+  .image {
+    max-width: 40%;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #title-screen {
+    text-align: center;
+    margin-top: 20vh;
+  }
+
+  #title-screen h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  #title-screen p {
+    font-size: 1.5rem;
+  }
+
+  /* 👇 Mobile adjustments */
+  @media (max-width: 600px) {
     body {
-      background-color: black;
-      color: green;
-      font-family: monospace;
-      font-size: 2rem;
-      padding: 20px;
-      transition: background-color 2s;
-    }
-    .red {
-      color: red;
-    }
-    .option {
-      display: block;
-      margin: 20px 0;
+      font-size: 1.2rem;
       padding: 10px;
-      font-size: 1.5rem;
-      background-color: #111;
-      color: #0f0;
-      border: 2px solid #0f0;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
     }
-    .option:hover {
-      background-color: #0f0;
-      color: black;
-    }
-    .image {
-      max-width: 40%;
-      margin-top: 20px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    #title-screen {
-      text-align: center;
-      margin-top: 20vh;
-    }
+
     #title-screen h1 {
-      font-size: 4rem;
-      margin-bottom: 2rem;
+      font-size: 2.5rem;
     }
-    #title-screen p {
-      font-size: 1.5rem;
+
+    .option {
+      font-size: 1.2rem;
+      padding: 8px;
     }
-  </style>
+  }
+</style>
+
 </head>
 <body>
   <div id="game"></div>
