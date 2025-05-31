@@ -240,42 +240,44 @@ function showTitleScreen() {
         </div>
       </div>
       <audio id="credit-music" src="REBIRTH.mp3"></audio>
-
     `;
 
-    const creditMusic = document.getElementById("credit-music");
+    setTimeout(() => {
+      const creditText = document.getElementById("credit-text");
+      const creditMusic = document.getElementById("credit-music");
 
-creditMusic.play().catch(() => {
-  console.log("Mobile browser blocked autoplay. Will try again on user input.");
-  document.addEventListener("click", () => creditMusic.play(), { once: true });
-});
+      creditMusic.play().catch(() => {
+        console.log("Mobile browser blocked autoplay. Will try again on user input.");
+        document.addEventListener("click", () => creditMusic.play(), { once: true });
+      });
 
+      let position = -100;
+      const scrollDuration = 60000;
+      const interval = 50;
+      const steps = scrollDuration / interval;
+      const increment = 220 / steps;
 
-    let position = -100;
-    const scrollDuration = 60000;
-    const interval = 50;
-    const steps = scrollDuration / interval;
-    const increment = 220 / steps;
+      const scrollInterval = setInterval(() => {
+        position += increment;
+        creditText.style.bottom = position + "%";
 
-    const scrollInterval = setInterval(() => {
-      position += increment;
-      creditText.style.bottom = position + "%";
-      if (position >= 120) {
-        clearInterval(scrollInterval);
-        const fadeOut = setInterval(() => {
-          if (creditMusic.volume > 0.05) {
-            creditMusic.volume -= 0.05;
-          } else {
-            creditMusic.volume = 0;
-            creditMusic.pause();
-            clearInterval(fadeOut);
-          }
-        }, 200);
-      }
-    }, interval);
+        if (position >= 120) {
+          clearInterval(scrollInterval);
+          const fadeOut = setInterval(() => {
+            if (creditMusic.volume > 0.05) {
+              creditMusic.volume -= 0.05;
+            } else {
+              creditMusic.volume = 0;
+              creditMusic.pause();
+              clearInterval(fadeOut);
+            }
+          }, 200);
+        }
+      }, interval);
+    }, 100);
   }, 8000);
 }
-      
+     
 
 showTitleScreen();
   </script>
