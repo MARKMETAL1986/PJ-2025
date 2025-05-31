@@ -221,7 +221,8 @@ function showTitleScreen() {
   setTimeout(() => {
     gameElement.style.opacity = 1;
     gameElement.innerHTML = `
-      <div id="credits" style="color: green; font-size: 1.5rem; line-height: 2; text-align: center; white-space: pre-line; height: 100vh; overflow: hidden; padding-top: 50px; position: relative;">
+      <div id="credits" style="color: green; font-size: 1.5rem; line-height: 2; text-align: center; white-space: pre-line; height: 100vh; overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center;">
+
         <div id="credit-text" style="position: absolute; bottom: -100%; width: 100%;">
           Game Design: Mark Taylor.
           Story: Mark Taylor.
